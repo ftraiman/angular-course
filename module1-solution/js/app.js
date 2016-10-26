@@ -37,7 +37,8 @@
         this.message = "Enjoy!";
       else
         this.message = "Too much!";
-        this.style = "green";
+      
+      this.style = "green";
     };
   }
 
