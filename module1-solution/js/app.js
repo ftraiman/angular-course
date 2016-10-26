@@ -4,9 +4,9 @@
   angular.module('LunchCheck', [])
     .controller('LunchCheckController', LunchCheckController);
 
-  LunchCheckController.$inject = ['$scope', '$filter'];
+  LunchCheckController.$inject = ['$scope'];
 
-  function LunchCheckController($scope, $filter) {
+  function LunchCheckController($scope) {
     $scope.lunch = "";
     $scope.message = "";
     $scope.style = "";
@@ -21,6 +21,7 @@
         this.style = "red";
         return 0;
       }
+      
       for(var i=0; i < foodArray.length; i++){
           var food = foodArray[i].replace(/^\s+/, '').replace(/\s+$/, '');
         if(food === ''){
