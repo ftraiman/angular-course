@@ -12,12 +12,12 @@
         var ctrl = this;
         ctrl.searchTerm = "";
         ctrl.found = [];
+        ctrl.nothing = false;
 
         ctrl.search = function () {
             ctrl.found = [];
             ctrl.found = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
         }
-
         ctrl.removeItem = function (itemIndex) {
             ctrl.found.splice(itemIndex, 1);
         };
@@ -38,7 +38,6 @@
 
             promise.then(function (response) {
                 var allItems = response.data.menu_items;  
-                console.log(searchTerm);
                 if(searchTerm == "" | searchTerm == undefined) {
                     for (var index = 0; index < allItems.length; index++) {
                         service.found.push(allItems[index]);
