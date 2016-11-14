@@ -37,16 +37,24 @@
             });
 
             promise.then(function (response) {
-                var allItems = response.data.menu_items;
-                for (var index = 0; index < allItems.length; index++) {
-                    if (allItems[index].description.includes(searchTerm)) {
+                var allItems = response.data.menu_items;  
+                console.log(searchTerm);
+                if(searchTerm == "" | searchTerm == undefined) {
+                    for (var index = 0; index < allItems.length; index++) {
                         service.found.push(allItems[index]);
                     }
-                }
 
+                } else {
+                    for (var index = 0; index < allItems.length; index++) {
+                        if (allItems[index].description.includes(searchTerm)) {
+                            service.found.push(allItems[index]);
+                        }
+                    }
+                }
             }).catch(function (error) {
                 console.log(error);
             });
+            
             return service.found;
         }
     }
