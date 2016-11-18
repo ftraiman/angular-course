@@ -19,14 +19,15 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/menuapp/templates/home.template.html'
   })
 
-  // Premade list page
+  // Category list
   .state('mainList', {
     url: '/main-list',
-    templateUrl: 'src/menuapp/templates/main-shoppinglist.template.html',
-    controller: 'MainShoppingListController as mainList',
+    templateUrl: 'src/menuapp/templates/main-restaurant.template.html',
+    controller: 'MainRestaurantListController as mainList',
     resolve: {
       items: ['MenuDataService', function (MenuDataService) {
-        return MenuDataService.getItems();
+        //return MenuDataService.getItems();
+        return MenuDataService.getAllCategories();
       }]
     }
   })
