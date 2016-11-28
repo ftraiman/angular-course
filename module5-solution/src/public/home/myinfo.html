@@ -1,0 +1,48 @@
+<div id="main-content" class="container">
+  <h1>Your Info</h1>
+  <br />
+  <div ng-if="yiCtrl.user.valid == undefined || yiCtrl.user.valid == false">
+    <span> Not Signed Up Yet. <a ui-sref="public.login">Sign Up </a> Now!</span>
+  </div>
+
+  <table ng-if="yiCtrl.user.valid == true" style="color: black; width:50%; margin: 0 auto;" class="table">
+    <tr>
+      <td> First name</td>
+      <td>{{yiCtrl.user.firstname}}</td>
+    </tr>
+    <tr>
+      <td> Last name</td><td>{{yiCtrl.user.lastname}}</td>
+    </tr>
+    <tr>
+      <td> E-mail</td>
+      <td>{{yiCtrl.user.email}}</td>
+    </tr>
+    <tr>
+      <td> Phone number</td>
+      <td>{{yiCtrl.user.phone}}</td>
+    </tr>
+    <tr>
+  </table>
+
+  <br />
+
+  <table ng-if="yiCtrl.user.valid == true" style="color: black; width:50%; margin: 0 auto;" class="table">
+    <tr>
+      <td>Favorite dish</td>
+      <td>{{yiCtrl.dish.short_name}}</td>
+    </tr>
+      <tr>
+        <td>Description</td>
+        <td>{{yiCtrl.dish.description}}</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <img width="250" height="150" ng-src="https://module5-ftraiman.herokuapp.com/images/{{yiCtrl.dish.short_name}}.jpg" .
+            alt="{{yiCtrl.dish.menuItem.name}}">
+        </td>
+        
+      </tr>
+    
+  </table>
+     
+</div>
